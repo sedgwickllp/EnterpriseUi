@@ -13,6 +13,8 @@ import { Navbar } from './navbar/navbar.component';
 import { SearchPipe } from './pipes/search.pipe';
 import { NotificationLoad } from './notifications/notifications-load.directive';
 import { Notifications } from './notifications/notifications.component';
+import { Tabs } from './tabs/tabs.component';
+import { Tab } from './tabs/tab.component';
 
 @NgModule({
   imports: [

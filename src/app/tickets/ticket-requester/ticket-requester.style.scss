@@ -1,0 +1,45 @@
+@import "../../scss/_variables.scss";
+@import "../../../../node_modules/bootstrap/scss/_variables.scss";
+@import "../../../../node_modules/bootstrap/scss/_mixins.scss";
+.contacts {
+    display: block;
+    margin-top: 25px;
+    margin-left: -10px;
+    margin-right: -10px;
+    padding-left: 0;
+    text-align: center;
+    position: relative;
+
+    > li {
+      display: inline-block;
+      line-height: 2.2;
+      list-style: none;
+      text-align: left;
+      margin: 0 10px;
+    //   width: 150px;
+    //   white-space: nowrap;
+
+      @include media-breakpoint-up(lg){
+        width: 150px;
+        white-space: nowrap;
+     }
+
+    //   > a {
+    //     color: lighten($text-color, 30%);
+    //     text-decoration: none;
+
+    //     &:hover,
+    //     &:focus {
+    //       color: $text-color;
+    //     }
+    //   }
+    }
+  }
+
+  .test {
+      list-style-type: none;
+      margin-top: 25px;
+    margin-left: -10px;
+    margin-right: -10px;
+    padding-left: 0;    
+  }
