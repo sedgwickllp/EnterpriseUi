@@ -10,6 +10,8 @@ import { bootloader } from '@angularclass/hmr';
  */
 import { AppModule } from './app';
 
+import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/switchMap';
 /*
  * Bootstrap our Angular app with a top level NgModule
  */

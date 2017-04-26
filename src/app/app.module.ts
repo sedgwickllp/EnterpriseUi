@@ -1,3 +1,5 @@
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { StoreModule } from '@ngrx/store';
 import { NgModule, ApplicationRef } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
@@ -16,6 +18,10 @@ import { APP_RESOLVER_PROVIDERS } from './app.resolver';
 import { AppState, InteralStateType } from './app.service';
 import { AppConfig } from './app.config';
 import { ErrorComponent } from './error/error.component';
+import { INITIAL_APPLICATION_STATE } from './application.state';
+import { ticketStoreData } from "app/tickets/ticket-store/ticket-reducer";
+import { EffectsModule } from "@ngrx/effects";
+import { TicketEffects } from "app/tickets/ticket-store/ticket-effects";
 
 // Application wide providers
 const APP_PROVIDERS = [
@@ -43,6 +49,8 @@ type StoreType = {
     BrowserModule,
     FormsModule,
     HttpModule,
+    StoreModule.provideStore({ticketStoreData}, INITIAL_APPLICATION_STATE),
+    StoreDevtoolsModule.instrumentOnlyWithExtension(),
     RouterModule.forRoot(ROUTES, { useHash: true })
   ],
   providers: [ // expose our Services and Providers into Angular's dependency injection

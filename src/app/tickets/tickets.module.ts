@@ -1,3 +1,4 @@
+import { TicketActions } from './ticket-store/ticket-actions';
 import { TicketRequester } from './ticket-requester/ticket-requester.component';
 import { TicketService } from './ticket.service';
 import { NgModule }      from '@angular/core';
@@ -11,6 +12,8 @@ import { Tab } from '../layout/tabs/tab.component';
 import { Tabs } from '../layout/tabs/tabs.component';
 import { TicketComments } from './ticket-comments/ticket-comments.component';
 import { TicketActivity } from './ticket-activity/ticket-activity.component';
+import { EffectsModule } from '@ngrx/effects';
+import { TicketEffects } from './ticket-store/ticket-effects';
 
 export const routes = [
   { path: '', redirectTo: 'ticket', pathMatch: 'full' },
@@ -23,7 +26,7 @@ export const routes = [
   imports: [
    CommonModule,
    FormsModule,
-  //  LayoutModule,
+  EffectsModule.run(TicketEffects),
    RouterModule.forChild(routes)
    ],
   declarations: [ TicketDetail,
@@ -33,7 +36,7 @@ export const routes = [
                   TicketRequester,
                   Tab,
                   Tabs ],
-  providers: [ TicketService ]
+  providers: [ TicketService, TicketActions ]
 })
 export class TicketsModule {
   static routes = routes;

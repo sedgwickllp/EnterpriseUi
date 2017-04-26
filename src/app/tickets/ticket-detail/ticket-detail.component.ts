@@ -1,5 +1,5 @@
 import { TicketService } from '../ticket.service';
-import { TicketModel } from '../models/ticket.model';
+import { TicketModel, TicketTestModel } from '../models/ticket.model';
 import { Component, OnInit } from '@angular/core';
 import * as types from '../models/types.model';
 import { TypeCode } from '../models/type-code';
@@ -10,7 +10,7 @@ import { TypeCode } from '../models/type-code';
   templateUrl: './ticket-detail.component.html'
 })
 export class TicketDetail implements OnInit {
-    ticket: TicketModel;
+    ticket: TicketTestModel;
     submitted: boolean;
     statusTypes: TypeCode[];
 
