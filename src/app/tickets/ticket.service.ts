@@ -1,9 +1,24 @@
 import { Injectable } from '@angular/core';
-import { TicketModel } from './models/ticket.model';
+import { TicketModel, TicketTestModel } from './models/ticket.model';
+import {Http, Headers} from "@angular/http";
+import { Observable } from 'rxjs/Rx';
+import { TicketStoreData } from './ticket-store/ticket.store-data';
 @Injectable()
 export class TicketService {
+    constructor(private http: Http) { }
 // api calls go here
-getTicketById(id: number): TicketModel {
+getTickets(): Observable<TicketModel[]> {
+   return this.http.get('http://localhost:60497/api/ticket')
+    .map(x => x.json()); // creates the  "payload" on the next line
+    //.map(payload => ({type: 'ADD_TICKET_LIST', payload: payload})) // creates the "action"
+    //.subscribe(action => this._store.dispatch(action)); // dispatches the action
+}
+
+getTicketDetailById(id: number): Observable<TicketModel> {
+    return this.http.get('http://localhost:60497/api/ticket/' + id)
+    .map(res => res.json());
+}
+getTicketById(id: number): TicketTestModel {
     return {
         requestorName: 'Danielle',
         ticketId: 1,
