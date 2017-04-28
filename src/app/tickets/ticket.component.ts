@@ -19,6 +19,7 @@ export class Ticket implements OnInit {
     ticketRequester$: Observable<TicketRequesterModel>;
     ticketActivity$: Observable<TicketActivityModel[]>;
     ticketComments$: Observable<TicketCommentsModel[]>;
+    ticketId: number = 5;
 
 constructor(private store: Store<ApplicationState>,
 private ticketActions: TicketActions) { 
@@ -28,7 +29,7 @@ private ticketActions: TicketActions) {
 }
 
     ngOnInit() {
-        this.store.dispatch(this.ticketActions.getTicketById(5));
+        this.store.dispatch(this.ticketActions.getTicketById(this.ticketId));
       
 }
  ticketCommentsSelector(state: ApplicationState):TicketCommentsModel[] {
@@ -39,6 +40,7 @@ private ticketActions: TicketActions) {
 }
 
 onPostComment(newComment: string){
-    this.store.dispatch(this.ticketActions.postComment(newComment))
+
+    this.store.dispatch(this.ticketActions.postComment({ ticketId: this.ticketId, comment: newComment}))
 }
 }

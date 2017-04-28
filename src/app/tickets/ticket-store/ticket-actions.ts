@@ -6,6 +6,8 @@ export class TicketActions {
     static GET_TICKET_BY_ID = '[Ticket] Get Ticket By Id'
     static GET_TICKET_SUCCESS = '[Ticket] Get Ticket Success';
     static POST_COMMENT = '[Ticket] Post Comment';
+
+    static POST_COMMENT_SUCCESS = '[Ticket] Post Comment Success';
     
    getTicketById(id): Action {
        return {
