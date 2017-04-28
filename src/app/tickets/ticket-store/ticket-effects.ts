@@ -15,6 +15,11 @@ export class TicketEffects {
 
     @Effect() getTicket$: Observable<Action> = this.actions$
         .ofType(TicketActions.GET_TICKET_BY_ID)
-        .switchMap(() => this.ticketService.getTicketDetailById(5))
+        .switchMap(action => this.ticketService.getTicketDetailById(action.payload))
         .map(ticket => this.ticketActions.getTicket(ticket));
+
+   @Effect() postComment$: Observable<Action> = this.actions$
+       .ofType(TicketActions.POST_COMMENT)
+       .switchMap(action => this.ticketService.postTicketComment(action.payload))
+    //    .map(comment => this.ticketActions.postComment(comment));
 }

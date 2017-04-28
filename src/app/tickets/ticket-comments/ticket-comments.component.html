@@ -13,7 +13,7 @@
     <form class="mt-2">
         <div class="form-group">
         <label class="sr-only" for="newComment">Comment</label>
-        <textarea class="form-control" id="newComment" placeholder="post comment..." rows="3"></textarea>
+        <textarea class="form-control" id="newComment" placeholder="post comment..." rows="3" [(ngModel)]="newComment" name="newComment"></textarea>
         </div>
         <div class="btn-toolbar">
           <button type="button" class="btn btn-primary">Share With Requester</button>

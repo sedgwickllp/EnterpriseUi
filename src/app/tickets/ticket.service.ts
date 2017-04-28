@@ -3,6 +3,7 @@ import { TicketModel, TicketTestModel } from './models/ticket.model';
 import {Http, Headers} from "@angular/http";
 import { Observable } from 'rxjs/Rx';
 import { TicketStoreData } from './ticket-store/ticket.store-data';
+import { TicketCommentsRequest } from "app/tickets/models/ticket-comments.model";
 @Injectable()
 export class TicketService {
     constructor(private http: Http) { }
@@ -16,6 +17,11 @@ getTickets(): Observable<TicketModel[]> {
 
 getTicketDetailById(id: number): Observable<TicketModel> {
     return this.http.get('http://localhost:60497/api/ticket/' + id)
+    .map(res => res.json());
+}
+
+postTicketComment(comment: TicketCommentsRequest){
+    return this.http.post('http://localhost:60497/api/ticketNote', comment)
     .map(res => res.json());
 }
 getTicketById(id: number): TicketTestModel {

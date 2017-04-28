@@ -11,6 +11,7 @@ export class TicketComments implements OnInit {
     comments: TicketCommentsModel[];
     @Output()
     postComment = new EventEmitter();
+    newComment: string;
 
     ngOnInit() {
         // this.comments = [
@@ -25,5 +26,6 @@ export class TicketComments implements OnInit {
 
     postCommentInternally(newComment: string) {
             this.postComment.next(newComment);
+            this.newComment = "";
     }
 }
