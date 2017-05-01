@@ -7,7 +7,7 @@
  <div class="col-md-8">
    <tabs>
      <tab tabTitle="Comments"><ticket-comments [comments]="ticketComments$ | async" (postComment)="onPostComment($event)"></ticket-comments></tab>
-    <tab tabTitle="Activity"><ticket-activity></ticket-activity></tab>
+    <tab tabTitle="Activity"><ticket-activity [activity]="ticketActivity$ | async"></ticket-activity></tab>
    </tabs>
  </div>
 <div class="col-md-4">

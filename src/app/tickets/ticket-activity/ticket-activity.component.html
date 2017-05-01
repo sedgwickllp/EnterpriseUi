@@ -1,19 +1,19 @@
 <section class="widget">
     <div class="widget-body no-padding">
-        <ul class="news-list stretchable">
+        <ul *ngFor="let act of activity" class="news-list stretchable">
             <li>
-                <span class="icon bg-danger text-white">
-                                    <i class="fa fa-comment"></i>
+                <span class="icon text-white" [class.bg-danger]="act.isComment" [class.bg-info]="act.isAssigned" [class.bg-success]="act.isCreated">
+                                    <i class="fa" [class.fa-comment]="act.isComment" [class.fa-user]="act.isAssigned" [class.fa-pencil-square]="act.isCreated"></i>
                                 </span>
                 <div class="news-item-info">
-                    <h5 class="name no-margin mb-xs"><a href="#">John Doe commented</a></h5>
+                    <h5 class="name no-margin mb-xs"><a href="#">{{act.userName}}</a></h5>
                     <p class="fs-mini">
-                        Lorem ipsum dolor sit amet
+                        {{act.activity}}
                     </p>
-                    <time class="help-block">Mar 20, 18:46</time>
+                    <time class="help-block">{{act.createdDate}}</time>
                 </div>
             </li>
-            <li>
+            <!--<li>
                 <span class="icon bg-info text-white">
                                     <i class="fa fa-user"></i>
                                 </span>
@@ -36,7 +36,7 @@
                     </p>
                     <time class="help-block">Mar 20, 18:46</time>
                 </div>
-            </li>
+            </li>-->
         </ul>
     </div>
 </section>

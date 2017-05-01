@@ -25,6 +25,7 @@ constructor(private store: Store<ApplicationState>,
 private ticketActions: TicketActions) { 
 
     this.ticketComments$ = store.select(this.ticketCommentsSelector);
+    this.ticketActivity$ = store.select(this.ticketActivitySelector);
         
 }
 
@@ -36,6 +37,13 @@ private ticketActions: TicketActions) {
      if(state.ticketStoreData) {
         return state.ticketStoreData.ticketComments;
      }
+    return [];
+}
+
+ticketActivitySelector(state: ApplicationState): TicketActivityModel[] {
+    if(state.ticketStoreData) {
+        return state.ticketStoreData.ticketActivity;
+    }
     return [];
 }
 

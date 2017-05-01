@@ -1,5 +1,8 @@
 export interface TicketActivityModel {
     userName: string;
-    createdDateTime: string;
+    createdDate: string;
     activity: string;
+    isComment: boolean;
+    isCreated: boolean;
+    isAssigned: boolean;
 }
