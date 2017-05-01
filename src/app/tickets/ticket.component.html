@@ -12,7 +12,7 @@
  </div>
 <div class="col-md-4">
   <tabs>
-    <tab tabTitle="Requester"><ticket-requester></ticket-requester></tab>
+    <tab tabTitle="Requester"><ticket-requester [requester]="ticketRequester$ | async"></ticket-requester></tab>
     <tab tabTitle="Requester IT Info"><section class="widget" widget style="min-height: 200px">coming soon</section></tab>
   </tabs>
   <ticket-detail></ticket-detail>

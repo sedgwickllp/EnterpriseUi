@@ -26,6 +26,7 @@ private ticketActions: TicketActions) {
 
     this.ticketComments$ = store.select(this.ticketCommentsSelector);
     this.ticketActivity$ = store.select(this.ticketActivitySelector);
+    this.ticketRequester$ = store.select(this.ticketRequesterSelector);
         
 }
 
@@ -45,6 +46,13 @@ ticketActivitySelector(state: ApplicationState): TicketActivityModel[] {
         return state.ticketStoreData.ticketActivity;
     }
     return [];
+}
+
+ticketRequesterSelector(state: ApplicationState): TicketRequesterModel {
+    if(state.ticketStoreData) {
+        return state.ticketStoreData.ticketRequester;
+    }
+    return {};
 }
 
 onPostComment(newComment: string){

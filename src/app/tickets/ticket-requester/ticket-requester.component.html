@@ -3,14 +3,14 @@
         <section class="widget">
             <div class="widget-body">
 
-                <h5 class="fw-normal">Adam <span class="fw-semi-bold">Johns</span></h5>
+                <h5 class="fw-normal">{{requester.firstName}} <span class="fw-semi-bold">{{requester.lastName}}</span></h5>
                 <p>UI/UX designer</p>
                 <span>make this a tab section where first tab is user info and the second is the user asset such as ip address, login info, what hardware they have, etc.</span>
 
                 <ul class="test">
-                    <li><i class="fa fa-phone fa-fw mr-xs"></i> +375 29 555-55-55</li>
-                    <li><i class="fa fa-envelope fa-fw mr-xs"></i><a href="#"> psmith@example.com</a></li>
-                    <li><i class="fa fa-map-marker fa-fw mr-xs"></i> Minsk, Belarus</li>
+                    <li><i class="fa fa-phone fa-fw mr-xs"></i>{{requester.phone}}</li>
+                    <li><i class="fa fa-envelope fa-fw mr-xs"></i><a href="#">{{requester.email}}</a></li>
+                    <li><i class="fa fa-map-marker fa-fw mr-xs"></i>{{requester.location}}</li>
                 </ul>
 
             </div>
