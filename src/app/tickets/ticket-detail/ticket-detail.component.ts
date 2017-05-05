@@ -1,8 +1,9 @@
 import { TicketService } from '../ticket.service';
 import { TicketModel, TicketTestModel } from '../models/ticket.model';
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import * as types from '../models/types.model';
 import { TypeCode } from '../models/type-code';
+import { TicketDetailModel } from '../models/ticket-detail.model';
 
 
 @Component({
@@ -10,15 +11,18 @@ import { TypeCode } from '../models/type-code';
   templateUrl: './ticket-detail.component.html'
 })
 export class TicketDetail implements OnInit {
-    ticket: TicketTestModel;
+    @Input()
+    ticket: TicketDetailModel;
+    // ticket: TicketTestModel;
     submitted: boolean;
     statusTypes: TypeCode[];
+    status = ['Open', 'In Progress', 'Closed'];
 
-    constructor(private ticketService: TicketService) { console.log(this.ticketService); }
+    // constructor(private ticketService: TicketService) { console.log(this.ticketService); }
 
     ngOnInit() {
-      this.ticket = this.ticketService.getTicketById(1);
-      console.log(this.ticket);
+      // this.ticket = this.ticketService.getTicketById(1);
+      // console.log(this.ticket);
       this.statusTypes = this.getStatusTypeList();
       console.log(this.statusTypes);
     }

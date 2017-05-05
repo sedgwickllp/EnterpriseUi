@@ -15,7 +15,7 @@ export interface TicketStoreData {
 }
 
 export const INITIAL_TICKET_STORE_DATA: TicketStoreData = {
-    ticketDetail: { ticketId: undefined},
+    ticketDetail: {},
     ticketRequester: {},
     ticketActivity: [],
     ticketComments: []

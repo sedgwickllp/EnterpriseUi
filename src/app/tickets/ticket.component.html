@@ -4,17 +4,17 @@
 </ol>
 <h1 class="page-title">Ticket Detail</h1>-->
 <div class="row">
- <div class="col-md-8">
+ <div class="col-md-7">
    <tabs>
      <tab tabTitle="Comments"><ticket-comments [comments]="ticketComments$ | async" (postComment)="onPostComment($event)"></ticket-comments></tab>
     <tab tabTitle="Activity"><ticket-activity [activity]="ticketActivity$ | async"></ticket-activity></tab>
    </tabs>
  </div>
-<div class="col-md-4">
+<div class="col-md-5">
   <tabs>
     <tab tabTitle="Requester"><ticket-requester [requester]="ticketRequester$ | async"></ticket-requester></tab>
     <tab tabTitle="Requester IT Info"><section class="widget" widget style="min-height: 200px">coming soon</section></tab>
   </tabs>
-  <ticket-detail></ticket-detail>
+  <ticket-detail [ticket]="ticketDetail$ | async"></ticket-detail>
 </div>
 </div>

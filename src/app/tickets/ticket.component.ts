@@ -27,18 +27,25 @@ private ticketActions: TicketActions) {
     this.ticketComments$ = store.select(this.ticketCommentsSelector);
     this.ticketActivity$ = store.select(this.ticketActivitySelector);
     this.ticketRequester$ = store.select(this.ticketRequesterSelector);
-        
+    this.ticketDetail$ = store.select(this.ticketDetailSelector);    
 }
 
     ngOnInit() {
         this.store.dispatch(this.ticketActions.getTicketById(this.ticketId));
       
 }
- ticketCommentsSelector(state: ApplicationState):TicketCommentsModel[] {
+
+ticketCommentsSelector(state: ApplicationState):TicketCommentsModel[] {
      if(state.ticketStoreData) {
         return state.ticketStoreData.ticketComments;
      }
     return [];
+}
+ ticketDetailSelector(state: ApplicationState):TicketDetailModel {
+     if(state.ticketStoreData) {
+        return state.ticketStoreData.ticketDetail;
+     }
+    return {};
 }
 
 ticketActivitySelector(state: ApplicationState): TicketActivityModel[] {
