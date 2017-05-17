@@ -1,5 +1,5 @@
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
-import { StoreModule } from '@ngrx/store';
+import { combineReducers, StoreModule } from '@ngrx/store';
 import { NgModule, ApplicationRef } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
@@ -22,6 +22,7 @@ import { INITIAL_APPLICATION_STATE } from './application.state';
 import { ticketStoreData } from "app/tickets/ticket-store/ticket-reducer";
 import { EffectsModule } from "@ngrx/effects";
 import { TicketEffects } from "app/tickets/ticket-store/ticket-effects";
+import { typecodesStoreData } from './core/typecodes/typecodes-reducer';
 
 // Application wide providers
 const APP_PROVIDERS = [
@@ -49,7 +50,7 @@ type StoreType = {
     BrowserModule,
     FormsModule,
     HttpModule,
-    StoreModule.provideStore({ticketStoreData}, INITIAL_APPLICATION_STATE),
+    StoreModule.provideStore(combineReducers({ticketStoreData, typecodesStoreData}), INITIAL_APPLICATION_STATE),
     StoreDevtoolsModule.instrumentOnlyWithExtension(),
     RouterModule.forRoot(ROUTES, { useHash: true })
   ],

@@ -8,15 +8,15 @@ import { TicketRequester } from '../ticket-requester/ticket-requester.component'
 export interface TicketStoreData {
     ticketDetail: TicketDetailModel;
     ticketRequester: TicketRequesterModel;
-    ticketActivity: {[key:number]: TicketActivityModel};
+    ticketActivity: TicketActivityModel[];
     //ticketComments: {[key:number]: TicketCommentsModel};
     ticketComments: TicketCommentsModel[];
   //tickets: {[key:number]: TicketModel}
 }
 
 export const INITIAL_TICKET_STORE_DATA: TicketStoreData = {
-    ticketDetail: { ticketId: undefined},
+    ticketDetail: {},
     ticketRequester: {},
-    ticketActivity: {},
+    ticketActivity: [],
     ticketComments: []
 };
