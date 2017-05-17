@@ -1,3 +1,4 @@
+import { CoreModule } from '../core/core.module';
 import { TicketActions } from './ticket-store/ticket-actions';
 import { TicketRequester } from './ticket-requester/ticket-requester.component';
 import { TicketService } from './ticket.service';
@@ -25,6 +26,7 @@ export const routes = [
 @NgModule({
   imports: [
    CommonModule,
+   CoreModule,
    FormsModule,
   EffectsModule.run(TicketEffects),
    RouterModule.forChild(routes)

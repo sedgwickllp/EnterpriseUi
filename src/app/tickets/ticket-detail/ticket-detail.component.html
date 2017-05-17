@@ -1,38 +1,72 @@
 <!--<div class="col-xs-12">-->
   <section class="widget">
     <div class="widget-body">
+      <h3>Ticket Detail</h3>
       <form (ngSubmit)="save()">
         <div class="row">
           <div class="col-xs-4">
-            <fieldset>
+            <fieldset *ngIf="false">
               <label for="component">Component</label>
               <ol class="breadcrumb">
                 <li class="breadcrumb-item ">{{ticket.component}}</li>
                 <li class="breadcrumb-item ">{{ticket.subComponent}}</li>
               </ol>
             </fieldset>
+            <div class="form-group">
+              
+              <label for="componentSelector">Component</label>
+              <select  id="componentSelector" class="form-control input-group-sm" [(ngModel)]="subComponent" name="componentSelector" [disabled]=false>
+                <template ngFor let-item [ngForOf]="test">
+                <optgroup *ngIf="item.children" label="{{item.text}}">
+        <option *ngFor="let child of item.children" [ngValue]="child">{{child}}</option>
+                </optgroup>
+                <!--<optgroup label="software">
+        <option *ngFor="let soft of software" [ngValue]="soft">{{soft}}</option>
+                </optgroup>-->
+                </template>
+      </select>
+              
+            </div>
 
             <div class="form-group">
               <label for="category" class="">Category</label>
               <input type="text" class="form-control input-group-sm input-no-border" id="category" [(ngModel)]="ticket.category" name="category">
             </div>
+            <!--<div class="form-group">
+              <label for="category" class="">Category</label>
+              <select id="category" class="form-control input-group-sm" [(ngModel)]="ticket.category" name="category" [disabled]=false>
+        <option *ngFor="let category of typecodes.categoryTypes" [ngValue]="category.name">{{category.name}}</option>
+      </select>
+            </div>-->
           </div>
           <div class="col-xs-4">
-            <div class="form-group">
+            <!--<div class="form-group">
               <label for="priority" class="">Priority</label>
               <input type="text" class="form-control input-group-sm input-no-border" id="priority" [(ngModel)]="ticket.priority" name="priority">
+            </div>-->
+             <div class="form-group">
+              <label for="priority" class="">Priority</label>
+              <select id="priority" class="form-control input-group-sm" [(ngModel)]="ticket.priority" name="priority" [disabled]=false>
+        <option *ngFor="let priority of typecodes.priorityTypes" [ngValue]="priority.name">{{priority.name}}</option>
+      </select>
             </div>
             <div class="form-group">
               <label for="status" class="">Status</label>
               <select id="status" class="form-control input-group-sm" [(ngModel)]="ticket.status" name="status" [disabled]=false>
-        <option *ngFor="let status of statusTypes" [ngValue]="status.text">{{status.text}}</option>
+        <option *ngFor="let status of typecodes.statusTypes" [ngValue]="status.name">{{status.name}}</option>
       </select>
             </div>
           </div>
           <div class="col-xs-4">
-            <div class="form-group">
+            <!--<div class="form-group">
               <label for="source" class="">Source</label>
               <input type="text" class="form-control input-group-sm input-no-border" id="priority" [(ngModel)]="ticket.source" name="source">
+            </div>-->
+            <div class="form-group">
+              <label for="source" class="">Source</label>
+              <select id="source" class="form-control input-group-sm" [(ngModel)]="ticket.source" name="source" [disabled]=false>
+        <option *ngFor="let source of typecodes.sourceTypes" [ngValue]="source.name">{{source.name}}</option>
+      </select>
             </div>
             <div class="form-group">
               <label for="createdDate" class="">Date Reported</label>
