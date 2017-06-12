@@ -14,12 +14,12 @@ export class TicketRequester implements OnInit {
     requester: TicketRequesterModel;
 
     ngOnInit() {
-        // this.requester = {
-        //     firstName: 'Tina',
-        //     lastName: 'Sanders',
-        //     email: 'tina.sanders@sedgwicklaw.com',
-        //     phone: '111.111.1111',
-        //     location: 'Kansas City'
-        // };
+         this.requester = {
+             firstName: 'Tina',
+             lastName: 'Sanders',
+             email: 'tina.sanders@sedgwicklaw.com',
+             phone: '111.111.1111',
+             location: 'Kansas City'
+         };
     }
 }

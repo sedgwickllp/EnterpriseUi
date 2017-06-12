@@ -6,6 +6,8 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
 import { removeNgStyles, createNewHosts, createInputTransfer } from '@angularclass/hmr';
+import { AuthModule } from './auth/auth.module';
+import { OidcSecurityService } from './auth/services/oidc.security.service';
 
 /*
  * Platform and Environment providers/directives/pipes
@@ -29,6 +31,7 @@ const APP_PROVIDERS = [
   ...APP_RESOLVER_PROVIDERS,
   AppState,
   AppConfig,
+  OidcSecurityService,
 ];
 
 type StoreType = {
@@ -52,6 +55,7 @@ type StoreType = {
     HttpModule,
     StoreModule.provideStore(combineReducers({ticketStoreData, typecodesStoreData}), INITIAL_APPLICATION_STATE),
     StoreDevtoolsModule.instrumentOnlyWithExtension(),
+    AuthModule.forRoot(),
     RouterModule.forRoot(ROUTES, { useHash: true })
   ],
   providers: [ // expose our Services and Providers into Angular's dependency injection

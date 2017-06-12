@@ -8,7 +8,7 @@ import { AllTypeCodesModel } from "app/core/typecodes/typecode.model";
 export class TypecodesService {
     constructor(private http: Http) {}
     getTypecodes(): Observable<AllTypeCodesModel> {
-        return this.http.get('http://localhost:60497/api/typecode')
+        return this.http.get('http://10.31.201.176:60497/api/typecode')
         .map(res => res.json());
     }
 }
