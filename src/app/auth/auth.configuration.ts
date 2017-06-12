@@ -8,7 +8,7 @@ export class AuthConfiguration {
 
     public server = 'http://localhost:5000'; //'http://10.31.201.176:5000';
 
-    public redirect_url = 'http://localhost:3000';
+    public redirect_url = 'http://localhost:3000/index.html';
 
     // This is required to get the signing keys so that the signiture of the Jwt can be validated.
     public jwks_url = this.server + '/.well-known/openid-configuration/jwks';
@@ -23,7 +23,7 @@ export class AuthConfiguration {
 
     public response_type = 'id_token token';
 
-    public scope = 'EnterpriseApi openid';
+    public scope = 'openid profile EnterpriseApi';
 
     public post_logout_redirect_uri = this.server + '/login';
 
@@ -33,5 +33,5 @@ export class AuthConfiguration {
 
     public checksession = this.server + '/connect/checksession'
 
-    public startupRoute = '/api/ticket/';
+    public startupRoute = '/app/dashboard/';
 }

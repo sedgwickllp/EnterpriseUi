@@ -29,10 +29,12 @@ export class App {
     console.log('ngOnInit _securityService.AuthorizedCallback')
     if (window.location.hash) {
             this.securityService.AuthorizedCallback();
-        }
-        else {
-          this.securityService.Authorize();
-        }
+    }
+    else {
+         this.securityService.Authorize();
+    }
+        
+        //this.securityService.ExternalLogin();
   }
 
 }
