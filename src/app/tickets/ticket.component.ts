@@ -1,15 +1,14 @@
+import { ApplicationState } from '../application.state';
 import { TypecodesActions } from '../core/typecodes/typecodes-actions';
 import { TicketCommentsModel } from './models/ticket-comments.model';
-import { TicketActions } from './ticket-store/ticket-actions';
-import { Store } from '@ngrx/store';
-import { TicketModel } from './models/ticket.model';
-import { Observable } from 'rxjs';
-import { Component, OnInit } from '@angular/core';
-import { ApplicationState } from '../application.state';
-import { TicketActivityModel } from 'app/tickets/models/ticket-activity.model';
-import { TicketRequesterModel } from './models/ticket-requester.model';
 import { TicketDetailModel } from './models/ticket-detail.model';
+import { TicketRequesterModel } from './models/ticket-requester.model';
+import { TicketActions } from './ticket-store/ticket-actions';
+import { Component, OnInit } from '@angular/core';
+import { Store } from '@ngrx/store';
 import { AllTypeCodesModel } from 'app/core/typecodes/typecode.model';
+import { TicketActivityModel } from 'app/tickets/models/ticket-activity.model';
+import { Observable } from 'rxjs';
 
 @Component({
     selector: 'ticket',
