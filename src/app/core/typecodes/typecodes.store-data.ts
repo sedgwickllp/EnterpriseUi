@@ -1,20 +1,20 @@
 import { TypecodeModel, AllTypeCodesModel } from './typecode.model';
 export interface TypeCodesStoreData {
-    components: TypecodeModel[];
+    categories: TypecodeModel[];
     priorities: TypecodeModel[];
-    requests: TypecodeModel[];
-    sources: TypecodeModel[];
+    origins: TypecodeModel[];
+    causes: TypecodeModel[];
     statuses: TypecodeModel[];
-    subComponents: TypecodeModel[];
+    subcategories: TypecodeModel[];
 // typecodes: AllTypeCodesModel
 }
 
 export const INITIAL_TYPECODES_STORE_DATA: TypeCodesStoreData = {
-    components: [],
+    categories: [],
     priorities: [],
-    requests: [],
-    sources: [],
+    origins: [],
+    causes: [],
     statuses: [],
-    subComponents: []
+    subcategories: []
     // typecodes: {}
 };

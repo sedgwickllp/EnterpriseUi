@@ -9,19 +9,19 @@ export class TicketService {
     constructor(private http: Http) { }
 // api calls go here
 getTickets(): Observable<TicketModel[]> {
-   return this.http.get('http://localhost:60497/api/ticket')
+   return this.http.get('http://localhost:58707/api/tickets')
     .map(x => x.json()); // creates the  "payload" on the next line
     //.map(payload => ({type: 'ADD_TICKET_LIST', payload: payload})) // creates the "action"
     //.subscribe(action => this._store.dispatch(action)); // dispatches the action
 }
 
 getTicketDetailById(id: number): Observable<TicketModel> {
-    return this.http.get('http://localhost:60497/api/ticket/' + id)
+    return this.http.get('http://localhost:58707/api/tickets/' + id)
     .map(res => res.json());
 }
 
 postTicketComment(comment: TicketCommentsRequest){
-    return this.http.post('http://localhost:60497/api/ticketNote', comment)
+    return this.http.post('http://localhost:58707/api/ticketNote', comment)
     .map(res => res.json());
 }
 getTicketById(id: number): TicketTestModel {

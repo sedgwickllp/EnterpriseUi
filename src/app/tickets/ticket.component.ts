@@ -9,6 +9,7 @@ import { Store } from '@ngrx/store';
 import { AllTypeCodesModel } from 'app/core/typecodes/typecode.model';
 import { TicketActivityModel } from 'app/tickets/models/ticket-activity.model';
 import { Observable } from 'rxjs';
+import { TicketProgressModel } from 'app/tickets/models/ticket-progress.model';
 
 @Component({
     selector: 'ticket',
@@ -21,7 +22,8 @@ export class Ticket implements OnInit {
     ticketRequester$: Observable<TicketRequesterModel>;
     ticketActivity$: Observable<TicketActivityModel[]>;
     ticketComments$: Observable<TicketCommentsModel[]>;
-    ticketId: number = 5;
+    ticketProgress$: Observable<TicketProgressModel>;
+    ticketId: number = 1;
 
     constructor(private store: Store<ApplicationState>,
         private ticketActions: TicketActions, private typecodesActions: TypecodesActions) {
@@ -30,6 +32,7 @@ export class Ticket implements OnInit {
         this.ticketActivity$ = store.select(this.ticketActivitySelector);
         this.ticketRequester$ = store.select(this.ticketRequesterSelector);
         this.ticketDetail$ = store.select(this.ticketDetailSelector);
+        this.ticketProgress$ = store.select(this.ticketProgressSelector);
         this.typecodes$ = store.select(this.typecodesSelector);
     }
 
@@ -42,12 +45,12 @@ export class Ticket implements OnInit {
     typecodesSelector(state: ApplicationState): AllTypeCodesModel {
         if (state.typecodesStoreData) {
             return {
-                itComponentTypes: state.typecodesStoreData.components,
+                categoryTypes: state.typecodesStoreData.categories,
                 priorityTypes: state.typecodesStoreData.priorities,
-                requestTypes: state.typecodesStoreData.requests,
-                sourceTypes: state.typecodesStoreData.sources,
+                originTypes: state.typecodesStoreData.origins,
+                causeTypes: state.typecodesStoreData.causes,
                 statusTypes: state.typecodesStoreData.statuses,
-                subcomponentTypes: state.typecodesStoreData.subComponents
+                subcategoryTypes: state.typecodesStoreData.subcategories
             };
         }
     }
@@ -75,6 +78,13 @@ export class Ticket implements OnInit {
     ticketRequesterSelector(state: ApplicationState): TicketRequesterModel {
         if (state.ticketStoreData) {
             return state.ticketStoreData.ticketRequester;
+        }
+        return {};
+    }
+
+    ticketProgressSelector(state: ApplicationState): TicketProgressModel {
+        if (state.ticketStoreData) {
+            return state.ticketStoreData.ticketProgress;
         }
         return {};
     }
