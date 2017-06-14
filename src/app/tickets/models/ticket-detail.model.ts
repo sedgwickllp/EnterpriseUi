@@ -1,11 +1,14 @@
 export interface TicketDetailModel{
     ticketId?: number;
-    component?: string;
-    subComponent?: string;
-    category?: string;    
+    category?: string;
+    subCategory?: string;
+    origin?: string;    
     status?: string;
     priority?: string;
-    source?: string;
-    createdDate?: string;
-    description?: string;
+    cause?: string;
+    createdDateTime?: string;
+    summary?: string;
+    isDeleted?: boolean;
+    isConfidential?: boolean;
+
 }

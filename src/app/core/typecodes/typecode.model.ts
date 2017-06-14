@@ -4,11 +4,11 @@ export interface TypecodeModel {
 }
 
 export interface AllTypeCodesModel {
-    itComponentTypes?: TypecodeModel[],
+    categoryTypes?: TypecodeModel[],
     priorityTypes?: TypecodeModel[],
-    requestTypes?: TypecodeModel[],
-    sourceTypes?: TypecodeModel[],
+    originTypes?: TypecodeModel[],
+    causeTypes?: TypecodeModel[],
     statusTypes?: TypecodeModel[],
-    subcomponentTypes?: TypecodeModel[]
+    subcategoryTypes?: TypecodeModel[]
 
 }

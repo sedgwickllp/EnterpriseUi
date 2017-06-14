@@ -6,12 +6,12 @@ export function typecodesStoreData(state: TypeCodesStoreData, action: Action): T
     switch (action.type) {
         case TypecodesActions.ALL_TYPECODES_LOAD_SUCCESS:
             return {
-                components: action.payload.itComponentTypes,
-                priorities: action.payload.priorityTypes,
-                requests: action.payload.requestTypes,
-                sources: action.payload.sourceTypes,
-                statuses: action.payload.statusTypes,
-                subComponents: action.payload.subComponentTypes
+                categories: action.payload.CategoryTypes,
+                priorities: action.payload.PriorityTypes,
+                origins: action.payload.OriginTypes,
+                causes: action.payload.CauseTypes,
+                statuses: action.payload.StatusTypes,
+                subcategories: action.payload.SubCategoryTypes
             }
         default:
             return state;

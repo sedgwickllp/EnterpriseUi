@@ -4,19 +4,20 @@ import { TicketDetailModel } from '../models/ticket-detail.model';
 import { TicketModel } from '../models/ticket.model';
 import { TicketActivityModel } from '../models/ticket-activity.model';
 import { TicketRequester } from '../ticket-requester/ticket-requester.component';
+import { TicketProgressModel } from 'app/tickets/models/ticket-progress.model';
 
 export interface TicketStoreData {
     ticketDetail: TicketDetailModel;
     ticketRequester: TicketRequesterModel;
     ticketActivity: TicketActivityModel[];
-    //ticketComments: {[key:number]: TicketCommentsModel};
     ticketComments: TicketCommentsModel[];
-  //tickets: {[key:number]: TicketModel}
+    ticketProgress: TicketProgressModel;
 }
 
 export const INITIAL_TICKET_STORE_DATA: TicketStoreData = {
     ticketDetail: {},
     ticketRequester: {},
     ticketActivity: [],
-    ticketComments: []
+    ticketComments: [],
+    ticketProgress: {}
 };

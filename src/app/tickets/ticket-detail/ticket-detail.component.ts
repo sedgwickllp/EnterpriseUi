@@ -17,17 +17,11 @@ export class TicketDetail implements OnInit {
     ticket: TicketDetailModel;
     @Input()
     typecodes: AllTypeCodesModel;
-   test = [{text:'hardware', children: ['computer','monitor','mouse','keyboard']}, {text:'software', children:['email', 'intranet', 'office', 'finance', 'filesite']}];
     submitted: boolean;
-    // statusTypes: TypeCode[];
-    // status = ['Open', 'In Progress', 'Closed'];
-    subComponent = 'email';
 
    constructor(private typecodeService: TypecodesService) {  }
 
     ngOnInit() {
-      this.ticket.subComponent = 'email';
-      console.log(this.ticket.subComponent);
       // this.typecodeService.getTypecodes()
       // .map(x => this.test = x)
       // .subscribe(value => console.log(value));
@@ -41,6 +35,7 @@ export class TicketDetail implements OnInit {
 // }
     save()
       {
+        let test = this.typecodes;
         this.submitted = true;
         console.log(this.ticket);
         alert('Ticket was updated!');

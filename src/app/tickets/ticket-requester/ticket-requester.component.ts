@@ -14,6 +14,7 @@ export class TicketRequester implements OnInit {
     requester: TicketRequesterModel;
 
     ngOnInit() {
+        let test = this.requester.firstName;
         // this.requester = {
         //     firstName: 'Tina',
         //     lastName: 'Sanders',
