@@ -155,7 +155,31 @@ export class OidcSecurityService {
         this._router.navigate([this._configuration.startupRoute]);
 //this._authorization.login(this.email, this.password)
 //    .subscribe((respJson) => this.success(respJson));
+        token = result.access_token;
+        id_token = result.id_token;
+        let decoded: any;
+        let headerDecoded;
+        decoded = this.oidcSecurityValidation.GetPayloadFromToken(id_token, false);
+        headerDecoded = this.oidcSecurityValidation.GetHeaderFromToken(id_token, false);
+        this.store('authNonce', '');
+        this.store('authStateControl', '');
+        this.SetAuthorizationData(token, id_token);
+        console.log(this.retrieve('authorizationData'));
 
+        if (this._configuration.start_checksession) {
+            this._oidcSecurityCheckSession.init().then(() => {
+                this._oidcSecurityCheckSession.pollServerSession(result.session_state, 'angularclient');
+            });
+        }
+
+        if (this._configuration.silent_renew) {
+            this._oidcSecuritySilentRenew.initRenew();
+        }
+
+        this.runTokenValidatation();
+
+        this._router.navigate([this._configuration.startupRoute]);
+        /*
         this.getSigningKeys()
             .subscribe((res) => {
                 this.jwtKeys = res;
@@ -228,6 +252,7 @@ export class OidcSecurityService {
                     this._router.navigate(['/Unauthorized']);
                 }
             });
+            */
     }
 
     public Logoff() {
@@ -268,8 +293,8 @@ export class OidcSecurityService {
             'redirect_uri=' + encodeURI(redirect_uri) + '&' +
             'scope=' + encodeURI(scope) + '&' +
             'nonce=' + encodeURI(nonce) + '&' +
-            'state=' + encodeURI(state);
-
+            'state=' + encodeURI(state);// + '&' +
+            //'acr_values=' + encodeURI('idp:NTLM');
         return url;
 
     }

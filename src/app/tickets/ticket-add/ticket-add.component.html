@@ -1,0 +1,77 @@
+<section class="widget">
+    <div class="widget-body">
+        <h3>Add New Ticket</h3>
+        <form >
+            <div class="row">
+                <div class="col-xs-4">
+
+                    <div class="form-group">
+
+                      <!--  <label for="requesterSelector">Requested By</label>
+                        <input type="text" id="requester" [(ngModel)]="newTicket.requesterId">-->
+                        <!--<select id="requesterSelector" class="form-control input-group-sm" [(ngModel)]="newTicket.requesterId" name="requesterSelector" [disabled]=false>
+                           
+                        </select>-->
+
+                    </div>
+
+                    <div class="form-group">
+                        <label for="status" class="">Status</label>
+                        <select id="status" class="form-control input-group-sm" [(ngModel)]="newTicket.statusId" name="status" [disabled]=false>
+                            <option *ngFor="let status of typecodes.statusTypes" [ngValue]="status.name">{{status.name}}</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="priority" class="">Priority</label>
+                        <select id="priority" class="form-control input-group-sm" [(ngModel)]="newTicket.priorityId" name="priority" [disabled]=false>
+                            <option *ngFor="let priority of typecodes.priorityTypes" [ngValue]="priority.name">{{priority.name}}</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="category" class="">Category</label>
+                        <select id="category" class="form-control input-group-sm" [(ngModel)]="newTicket.categoryId" name="category" [disabled]=false>
+                            <option *ngFor="let category of typecodes.categoryTypes" [ngValue]="category.name">{{category.name}}</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="category" class="">Subcategory</label>
+                        <select id="category" class="form-control input-group-sm" [(ngModel)]="newTicket.subcategoryId" name="category" [disabled]=false>
+                            <option *ngFor="let subcategory of typecodes.subcategoryTypes" [ngValue]="subcategory.name">{{subcategory.name}}</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12">     
+                    <div class="form-group">
+                        <label for="summary" class="">Summary</label>
+                         <textarea class="form-control" id="summary" placeholder="Summary of issue..." rows="3" [(ngModel)]="newTicket.summary" name="summary"></textarea>
+
+                           
+                        <!--<input type="text" class="form-control input-group-sm input-no-border" id="category" [(ngModel)]="ticket.category" name="category">-->
+                    </div>
+                    <div class="form-group">
+                        <label for="confidential" class="">Confidential?</label>
+                        <input type="checkbox" id="confidential" [(ngModel)]="newTicket.isConfidential" name="confidential" >
+                        <!--<input type="text" class="form-control input-group-sm input-no-border" id="category" [(ngModel)]="ticket.category" name="category">-->
+                    </div>
+                    <!--<div class="form-group">
+              <label for="category" class="">Category</label>
+              
+            </div>-->
+                </div>
+                
+
+                
+            </div>
+            <div class="form-actions">
+                <div class="row">
+                    <div class="offset-md-4 col-md-7">
+                        <button type="submit" class="btn btn-primary" (click)="postTicket(newTicket)">Add Ticket</button>
+                        <button type="button" class="btn btn-inverse">Cancel</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</section>

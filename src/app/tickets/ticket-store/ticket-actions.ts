@@ -6,7 +6,8 @@ export class TicketActions {
     static GET_TICKET_BY_ID = '[Ticket] Get Ticket By Id'
     static GET_TICKET_SUCCESS = '[Ticket] Get Ticket Success';
     static POST_COMMENT = '[Ticket] Post Comment';
-
+    static ADD_TICKET = '[Ticket] Add Ticket';
+    static ADD_TICKET_SUCCESS = '[Ticket] Add Ticket Success';
     static POST_COMMENT_SUCCESS = '[Ticket] Post Comment Success';
     
    getTicketById(id): Action {
@@ -27,5 +28,12 @@ export class TicketActions {
             type: TicketActions.POST_COMMENT,
             payload: newComment
         }
+    }
+
+    addTicket(ticket): Action {
+        return {
+            type: TicketActions.ADD_TICKET,
+            payload: ticket
+        };
     }
 }

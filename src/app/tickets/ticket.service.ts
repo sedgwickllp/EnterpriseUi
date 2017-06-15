@@ -4,6 +4,7 @@ import {Http, Headers} from "@angular/http";
 import { Observable } from 'rxjs/Rx';
 import { TicketStoreData } from './ticket-store/ticket.store-data';
 import { TicketCommentsRequest } from "app/tickets/models/ticket-comments.model";
+import { TicketAddRequest } from './models/ticket-add.model';
 @Injectable()
 export class TicketService {
     constructor(private http: Http) { }
@@ -39,5 +40,10 @@ export class TicketService {
             updatedDate: '',
             source: {id: 1, text: 'email'}
         };
+    }
+
+    postTicket(ticket: TicketAddRequest){
+        return this.http.post('http://10.31.201.176:60497/api/ticket', ticket)
+        .map(res => res.json());
     }
 }

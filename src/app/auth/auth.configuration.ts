@@ -25,7 +25,7 @@ export class AuthConfiguration {
 
     public scope = 'openid profile EnterpriseApi';
 
-    public post_logout_redirect_uri = this.server + '/login';
+    public post_logout_redirect_uri = 'http://localhost:3000/index.html';
 
     public start_checksession = false;
 
