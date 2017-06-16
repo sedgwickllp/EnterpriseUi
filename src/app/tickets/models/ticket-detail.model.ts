@@ -1,5 +1,5 @@
 export interface TicketDetailModel{
-    ticketId?: number;
+    TicketId?: number;
     category?: string;
     subCategory?: string;
     origin?: string;    
@@ -10,5 +10,7 @@ export interface TicketDetailModel{
     summary?: string;
     isDeleted?: boolean;
     isConfidential?: boolean;
+    ownerId?: number;
+    requesterId?: number;
 
 }

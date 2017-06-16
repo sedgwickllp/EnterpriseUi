@@ -89,8 +89,8 @@ export class Ticket implements OnInit {
         return {};
     }
 
-    onPostComment(newComment: string) {
+    onPostComment(newComment: TicketCommentsModel) {
 
-        this.store.dispatch(this.ticketActions.postComment({ ticketId: this.ticketId, comment: newComment }))
+        this.store.dispatch(this.ticketActions.postComment({ ticketId: this.ticketId, comment: newComment.Comment, isVisible: newComment.IsVisible }))
     }
 }

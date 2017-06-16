@@ -22,7 +22,7 @@ const ScriptExtHtmlWebpackPlugin = require('script-ext-html-webpack-plugin');
 const HMR = helpers.hasProcessFlag('hot');
 const AOT = helpers.hasNpmFlag('aot');
 const METADATA = {
-  title: 'Enterprise IT Controls Management',
+  title: 'Sedgwick EICM',
   baseUrl: '/',
   isDevServer: helpers.isWebpackDevServer()
 };

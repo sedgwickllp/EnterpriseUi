@@ -3,7 +3,7 @@
     <div class="list-group list-group-sm">
         <div *ngFor="let comment of comments" class="list-group-item"> 
         <h6 class="event-heading fw-normal">{{comment.UserName}}</h6>
-        <p class="text-muted"><i *ngIf=!comment.isVisible class="fa fa-lock"></i> {{comment.CreatedDateTime}}</p>
+        <p class="text-muted"><i class="bt fa" [class.fa-lock]="!comment.IsVisible" [class.text-danger]="!comment.IsVisible" [class.fa-group]="comment.IsVisible" [class.text-primary]="comment.IsVisible"></i> {{comment.CreatedDateTime}}</p>
         <p class="fs-mini">
           {{comment.Comment}}
         </p>
@@ -16,7 +16,7 @@
         <textarea class="form-control" id="newComment" placeholder="post comment..." rows="3" [(ngModel)]="newComment" name="newComment"></textarea>
         </div>
         <div class="btn-toolbar">
-          <button type="button" class="btn btn-primary">Share With Requester</button>
+          <button type="button" class="btn btn-primary" (click)="postCommentAll(newComment)">Share With Requester</button>
           <button type="button" class="btn btn-danger btn-sm pull-right" (click)="postCommentInternally(newComment)">Post Internally</button>
         </div>
     </form>
