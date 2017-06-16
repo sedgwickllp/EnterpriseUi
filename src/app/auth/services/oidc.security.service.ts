@@ -294,7 +294,7 @@ export class OidcSecurityService {
             'scope=' + encodeURI(scope) + '&' +
             'nonce=' + encodeURI(nonce) + '&' +
             'state=' + encodeURI(state);// + '&' +
-            //'acr_values=' + encodeURI('idp:NTLM');
+            'acr_values=' + encodeURI('idp:NTLM');
         return url;
 
     }

@@ -27,13 +27,14 @@ export class App {
   ngOnInit() {
     console.log('Initial App State', this.appState.state);
     console.log('ngOnInit _securityService.AuthorizedCallback')
-    /*if (window.location.hash) {
-            this.securityService.AuthorizedCallback();
+    if (window.location.hash && window.location.hash.substr(1,1) != "/") {
+      console.log(window.location.hash.substr(1,1))
+         //   this.securityService.AuthorizedCallback();
     }
     else {
-         this.securityService.Authorize();
+        // this.securityService.Authorize();
     }
-    */    
+        
         //this.securityService.ExternalLogin();
   }
 

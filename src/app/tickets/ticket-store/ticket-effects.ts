@@ -26,5 +26,5 @@ export class TicketEffects {
      @Effect() addTicket$: Observable<Action> = this.actions$
         .ofType(TicketActions.ADD_TICKET)
         .switchMap(action => this.ticketService.addTicket(action.payload))
-        .map(ticket => this.ticketActions.getTicket(ticket));
+        //.map(ticket => this.ticketActions.getTicket(ticket));
 }

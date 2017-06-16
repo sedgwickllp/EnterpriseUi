@@ -7,10 +7,11 @@ export function ticketStoreData(state: TicketStoreData, action: Action): TicketS
     switch (action.type) {
         case TicketActions.GET_TICKET_SUCCESS:
             return {
-                ticketDetail: action.payload.ticketDetail,
-                ticketRequester: action.payload.ticketRequester,
-                ticketActivity: action.payload.ticketActivity,
-                ticketComments: action.payload.ticketComments
+                ticketDetail: action.payload.TicketDetail,
+                ticketRequester: action.payload.TicketRequester,
+                ticketActivity: action.payload.TicketActivity,
+                ticketComments: action.payload.TicketComments,
+                ticketProgress: action.payload.TicketProgress
             }
         case TicketActions.POST_COMMENT:
             return handleNewCommentReceivedAction(state, <any>action);
@@ -26,7 +27,8 @@ function handleNewCommentReceivedAction(state: TicketStoreData, action: Action) 
         ticketDetail: state.ticketDetail,
         ticketRequester: state.ticketRequester,
         ticketActivity: state.ticketActivity,
-        ticketComments: state.ticketComments
+        ticketComments: state.ticketComments,
+        ticketProgress: state.ticketProgress
     };
 
     const newComment: TicketCommentsModel = {

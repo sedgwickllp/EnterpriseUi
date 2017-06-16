@@ -5,7 +5,7 @@ declare let jQuery: any;
 @Injectable()
 export class AppConfig {
   config = {
-    name: 'RocketFuel',
+    name: 'EICM',
     title: 'IT Enterprise App',
     version: '0.0.0',
     /**

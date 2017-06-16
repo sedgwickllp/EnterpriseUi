@@ -26,11 +26,11 @@ export class TicketComments implements OnInit {
 
     postCommentInternally(newComment: string) {
         const comment: TicketCommentsModel = {
-        userName: "Princess Leia",
-        //createdDateTime: moment().format('MM/DD/YY'),
-        comment: newComment,
-        isVisible: false
-    };
+            userName: "Princess Leia",
+            //createdDateTime: moment().format('MM/DD/YY'),
+            comment: newComment,
+            isVisible: false
+        };
             this.postComment.next(newComment);
             this.newComment = "";
     }
