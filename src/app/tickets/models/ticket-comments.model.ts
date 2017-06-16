@@ -1,8 +1,9 @@
 export interface TicketCommentsModel {
-    userName: string;
-    createdDateTime?: string;
-    comment: string;
-    isVisible: boolean;
+    UserName: string;
+    CreatedDateTime?: string;
+    Comment: string;
+    IsVisible: boolean;
+    TicketId?: number;
 
 }
 

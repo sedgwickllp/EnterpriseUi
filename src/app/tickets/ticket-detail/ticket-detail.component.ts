@@ -6,6 +6,7 @@ import { TypeCode } from '../models/type-code';
 import { TicketDetailModel } from '../models/ticket-detail.model';
 import { TypecodesService } from "app/core/typecodes/typecodes.service";
 import { AllTypeCodesModel } from "app/core/typecodes/typecode.model";
+import { Http } from '@angular/http';
 
 
 @Component({
@@ -19,7 +20,7 @@ export class TicketDetail implements OnInit {
     typecodes: AllTypeCodesModel;
     submitted: boolean;
 
-   constructor(private typecodeService: TypecodesService) {  }
+   constructor(private http: Http) {  }
 
     ngOnInit() {
       // this.typecodeService.getTypecodes()
@@ -35,9 +36,14 @@ export class TicketDetail implements OnInit {
 // }
     save()
       {
-        let test = this.typecodes;
+      this.putTicket(this.ticket);
         this.submitted = true;
         console.log(this.ticket);
         alert('Ticket was updated!');
       }
+
+      putTicket(ticket: TicketDetailModel){
+    return this.http.put('http://localhost:58707/api/tickets/' + ticket.TicketId, ticket)
+    .map(res => res.json());
+}
 }

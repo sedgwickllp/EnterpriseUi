@@ -21,7 +21,7 @@ getTicketDetailById(id: number): Observable<TicketModel> {
 }
 
 postTicketComment(comment: TicketCommentsRequest){
-    return this.http.post('http://localhost:58707/api/ticketNote', comment)
+    return this.http.post('http://localhost:58707/api/ticketComments', comment)
     .map(res => res.json());
 }
 getTicketById(id: number): TicketTestModel {
