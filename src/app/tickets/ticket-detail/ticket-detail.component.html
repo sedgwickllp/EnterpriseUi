@@ -23,12 +23,14 @@
           <div class="form-group">
             <label for="category" class="">Category</label>
             <select id="category" class="form-control input-group-sm" [(ngModel)]="ticket.Category" name="category" [disabled]=false>
+              <option *ngIf="!ticket.Category" value="null">Select Option</option>
         <option *ngFor="let category of typecodes.categoryTypes" [ngValue]="category.Name">{{category.Name}}</option>
       </select>
           </div>
           <div class="form-group">
             <label for="subcategory" class="">SubCategory</label>
             <select id="subcategory" class="form-control input-group-sm" [(ngModel)]="ticket.SubCategory" name="subcategory" [disabled]=false>
+              <option *ngIf="!ticket.SubCategory" value="null">Select Option</option>
         <option *ngFor="let subcategory of typecodes.subcategoryTypes" [ngValue]="subcategory.Name">{{subcategory.Name}}</option>
       </select>
           </div>
@@ -41,12 +43,14 @@
           <div class="form-group">
             <label for="origin" class="">Origin</label>
             <select id="origin" class="form-control input-group-sm" [(ngModel)]="ticket.Origin" name="origin" [disabled]=false>
+              <option *ngIf="!ticket.Origin" value="null">Select Option</option>
         <option *ngFor="let origin of typecodes.originTypes" [ngValue]="origin.Name">{{origin.Name}}</option>
       </select>
           </div>
           <div class="form-group">
             <label for="cause" class="">Cause</label>
             <select id="cause" class="form-control input-group-sm" [(ngModel)]="ticket.Cause" name="cause" [disabled]=false>
+              <option *ngIf="!ticket.Cause" value="null">Select Option</option>
         <option *ngFor="let cause of typecodes.causeTypes" [ngValue]="cause.Name">{{cause.Name}}</option>
       </select>
           </div>
