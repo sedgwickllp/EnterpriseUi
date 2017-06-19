@@ -4,6 +4,7 @@ import {Http, Headers} from "@angular/http";
 import { Observable } from 'rxjs/Rx';
 import { TicketStoreData } from './ticket-store/ticket.store-data';
 import { TicketCommentsRequest } from "app/tickets/models/ticket-comments.model";
+import { TicketDetailModel } from './models/ticket-detail.model';
 @Injectable()
 export class TicketService {
     constructor(private http: Http) { }
@@ -24,19 +25,10 @@ postTicketComment(comment: TicketCommentsRequest){
     return this.http.post('http://localhost:58707/api/ticketComments', comment)
     .map(res => res.json());
 }
-getTicketById(id: number): TicketTestModel {
-    return {
-        requestorName: 'Danielle',
-        ticketId: 1,
-        component: {id: 1, text: 'Software'},
-        subcomponent: {id: 1, text: 'Outlook'},
-        category: {id: 1, text: 'Password Reset' },
-        priority: {id: 1, text: 'High' },
-        status: {id: 2, text: 'Open' },
-        description: 'say need to set password but do not know old one',
-        createdDate: '03/17/2017',
-        updatedDate: '',
-        source: {id: 1, text: 'email'}
-    };
+
+putTicket(ticket: TicketDetailModel){
+    return this.http.put('http://localhost:58707/api/tickets/' + ticket.TicketId, ticket)
+    .map(res => res.json());
+
 }
 }
