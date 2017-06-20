@@ -16,11 +16,13 @@ import { TicketActivity } from './ticket-activity/ticket-activity.component';
 import { EffectsModule } from '@ngrx/effects';
 import { TicketEffects } from './ticket-store/ticket-effects';
 import { TicketProgress } from './ticket-progress/ticket-progress.component.ts';
+import { TicketAdd } from './ticket-add/ticket-add.component';
 
 export const routes = [
   { path: '', redirectTo: 'ticket', pathMatch: 'full' },
   { path: 'ticket', component: Ticket },
-  {path: 'ticket-detail', component: TicketDetail}
+  {path: 'ticket-detail', component: TicketDetail},
+  { path: 'ticket-add', component: TicketAdd}
 ];
 
 
@@ -38,6 +40,7 @@ export const routes = [
                   TicketActivity,
                   TicketRequester,
                   TicketProgress,
+                  TicketAdd,
                   Tab,
                   Tabs ],
   providers: [ TicketService, TicketActions ]
