@@ -22,4 +22,9 @@ export class TicketEffects {
        .ofType(TicketActions.POST_COMMENT)
        .switchMap(action => this.ticketService.postTicketComment(action.payload))
     //    .map(comment => this.ticketActions.postComment(comment));
+
+     @Effect() addTicket$: Observable<Action> = this.actions$
+        .ofType(TicketActions.ADD_TICKET)
+        .switchMap(action => this.ticketService.addTicket(action.payload))
+        //.map(ticket => this.ticketActions.getTicket(ticket));
 }
