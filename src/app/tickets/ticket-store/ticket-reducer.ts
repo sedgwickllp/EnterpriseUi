@@ -50,12 +50,12 @@ function handleNewTicketReceivedAction(state: TicketStoreData, action: Action) {
         ticketComments: state.ticketComments
     };
 
-    const newComment: TicketCommentsModel = {
-        userName: "Princess Leia",
+    /*const newComment: TicketCommentsModel = {
+        UserName: "Princess Leia",
         //createdDateTime: moment().format('MM/DD/YY'),
         comment: action.payload.comment,
         isVisible: action.payload.isVisible
-    };
-    newStoreData.ticketComments.push(newComment);
+    };*/
+    //newStoreData.ticketComments.push(newComment);
     return newStoreData;
 }

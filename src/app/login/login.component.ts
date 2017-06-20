@@ -7,7 +7,7 @@ import { ApplicationState } from '../application.state';
 @Component({
   selector: 'login',
   styleUrls: [ './login.style.scss' ],
-  templateUrl: './login.template.html',
+  templateUrl: './login-template.html',
   encapsulation: ViewEncapsulation.None,
   host: {
     class: 'login-page app'
@@ -25,8 +25,8 @@ export class Login implements OnInit {
   }
 
   userSelector(state: ApplicationState): UserModel {
-        if (state.LoginStoreData) {
-            return state.LoginStoreData.user;
+        if (state.loginStoreData) {
+            return state.loginStoreData.user;
          }
     }
   

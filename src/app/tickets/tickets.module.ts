@@ -21,7 +21,7 @@ import { TicketAdd } from './ticket-add/ticket-add.component';
 export const routes = [
   { path: '', redirectTo: 'ticket', pathMatch: 'full' },
   { path: 'ticket', component: Ticket },
-  {path: 'ticket-detail', component: TicketDetail}
+  {path: 'ticket-detail', component: TicketDetail},
   { path: 'ticket-add', component: TicketAdd}
 ];
 

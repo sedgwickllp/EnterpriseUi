@@ -9,7 +9,7 @@ export class LoginService {
     // api calls go here
     getUser(): Observable<UserModel[]> {
         //this.headers.
-        return this.http.post('http://10.31.201.176:5000/connect/token',{})
+        return this.http.post('http://localhost:5000/connect/token',{})
             .map(x => x.json()); // creates the  "payload" on the next line
         //.map(payload => ({type: 'ADD_TICKET_LIST', payload: payload})) // creates the "action"
         //.subscribe(action => this._store.dispatch(action)); // dispatches the action

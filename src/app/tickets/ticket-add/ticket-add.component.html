@@ -1,95 +1,119 @@
-<section class="widget">
-    <div class="widget-body">
-        <h3>Add New Ticket</h3>
-        <form >
-            <div class="row">
-                <div class="col-xs-4">
+<div class="row">
+    
+    <div class="col-md-6">
+        <section class="widget">
+            <div class="widget-body">
+                <h3>Add New Ticket</h3>
+                <form >
+                    <div class="row">
+                        <div class="col-xs-4">
+                            <div class="form-group">
+                                <label for="priority" class="">Priority</label>
+                                <select id="priority" class="form-control input-group-sm" [(ngModel)]="newTicket.priorityId" name="priority" [disabled]=false>
+                                    <option *ngFor="let priority of typecodes.priorityTypes" [ngValue]="priority.Id">{{priority.Name}}</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                
+                                <label for="status" class="">Status</label>
+                                <select id="status" class="form-control input-group-sm" [(ngModel)]="newTicket.statusId" name="status" [disabled]=false>
+                                    <option *ngFor="let status of typecodes.statusTypes" [ngValue]="status.Id">{{status.Name}}</option>
+                                </select>
+                            </div>
+                            
+                        </div>
+                        <div class="col-xs-4"> 
+                            <div class="form-group">
+                                <label for="category" class="">Category</label>
+                                <select id="category" class="form-control input-group-sm" [(ngModel)]="newTicket.categoryId" name="category" [disabled]=false>
+                                    <option *ngFor="let category of typecodes.categoryTypes" [ngValue]="category.Id">{{category.Name}}</option>
+                                </select>
+                            </div>   
+                            <div class="form-group">
+                                <label for="category" class="">Subcategory</label>
+                                <select id="category" class="form-control input-group-sm" [(ngModel)]="newTicket.subcategoryId" name="category" [disabled]=false>
+                                    <option *ngFor="let subcategory of typecodes.subcategoryTypes" [ngValue]="subcategory.Id">{{subcategory.Name}}</option>
+                                </select>
+                            </div>                  
+                        </div>
 
-                    <div class="form-group">
+                        <div class="col-xs-4"> 
+                            <div class="form-group">
+                                <label for="origin" class="">Origin</label>
+                                <select id="origin" class="form-control input-group-sm" [(ngModel)]="newTicket.originId" name="origin" [disabled]=false>
+                                    <option *ngFor="let origin of typecodes.originTypes" [ngValue]="origin.Id">{{origin.Name}}</option>
+                                </select>
+                            </div>   
+                            <div class="form-group">
+                                <label for="cause" class="">Cause</label>
+                                <select id="cause" class="form-control input-group-sm" [(ngModel)]="newTicket.causeId" name="cause" [disabled]=false>
+                                    <option *ngFor="let cause of typecodes.causeTypes" [ngValue]="cause.Id">{{cause.Name}}</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-4">       
+                            <div class="form-group">
+                                <label for="requesterSelector">Requested By</label>
+                                
+                                <select id="requesterSelector" class="form-control input-group-sm" [(ngModel)]="newTicket.requesterId" name="requesterSelector" [disabled]=false>
+                                    <option *ngFor="let user of users" [ngValue]="user.id">{{user.name}}</option>
+                                </select>
 
-                        <label for="requesterSelector">Requested By</label>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="ownerSelector">Owner</label>                       
+                                <select id="ownerSelector" class="form-control input-group-sm" [(ngModel)]="newTicket.ownerId" name="ownerSelector" [disabled]=false>
+                                    <option *ngFor="let user of users" [ngValue]="user.id">{{user.name}}</option>
+                                </select>
+
+                            </div>
+                            
+                            
+                            
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12">     
+                            <div class="form-group">
+                                <label for="summary" class="">Summary</label>
+                                <textarea class="form-control" id="summary" placeholder="Summary of issue..." rows="3" [(ngModel)]="newTicket.summary" name="summary"></textarea>
+
+                                
+                                <!--<input type="text" class="form-control input-group-sm input-no-border" id="category" [(ngModel)]="ticket.category" name="category">-->
+                            </div>
+                            <div class="form-group">
+                                <label for="confidential" class="">Confidential?</label>
+                                <input type="checkbox" id="confidential" [(ngModel)]="newTicket.isConfidential" name="confidential" >
+                                <!--<input type="text" class="form-control input-group-sm input-no-border" id="category" [(ngModel)]="ticket.category" name="category">-->
+                            </div>
+                            <!--<div class="form-group">
+                    <label for="category" class="">Category</label>
+                    
+                    </div>-->
+                        </div>
                         
-                        <select id="requesterSelector" class="form-control input-group-sm" [(ngModel)]="newTicket.requesterId" name="requesterSelector" [disabled]=false>
-                            <option *ngFor="let user of users" [ngValue]="user.id">{{user.name}}</option>
-                        </select>
 
+                        
                     </div>
-                    <div class="form-group">
-                        <label for="ownerSelector">Owner</label>                       
-                        <select id="ownerSelector" class="form-control input-group-sm" [(ngModel)]="newTicket.ownerId" name="ownerSelector" [disabled]=false>
-                            <option *ngFor="let user of users" [ngValue]="user.id">{{user.name}}</option>
-                        </select>
-
+                    <div class="form-actions">
+                        <div class="row">
+                            <div class="offset-md-4 col-md-7">
+                                <button type="button" class="btn btn-primary" (click)="postTicket(newTicket)">Add Ticket</button>
+                                <button type="button" class="btn btn-inverse">Cancel</button>
+                            </div>
+                        </div>
                     </div>
-                    <div class="form-group">
-                        <label for="origin" class="">Origin</label>
-                        <select id="origin" class="form-control input-group-sm" [(ngModel)]="newTicket.originId" name="origin" [disabled]=false>
-                            <option *ngFor="let origin of typecodes.originTypes" [ngValue]="origin.Id">{{origin.Name}}</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="cause" class="">Cause</label>
-                        <select id="cause" class="form-control input-group-sm" [(ngModel)]="newTicket.causeId" name="cause" [disabled]=false>
-                            <option *ngFor="let cause of typecodes.causeTypes" [ngValue]="cause.Id">{{cause.Name}}</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="status" class="">Status</label>
-                        <select id="status" class="form-control input-group-sm" [(ngModel)]="newTicket.statusId" name="status" [disabled]=false>
-                            <option *ngFor="let status of typecodes.statusTypes" [ngValue]="status.Id">{{status.Name}}</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="priority" class="">Priority</label>
-                        <select id="priority" class="form-control input-group-sm" [(ngModel)]="newTicket.priorityId" name="priority" [disabled]=false>
-                            <option *ngFor="let priority of typecodes.priorityTypes" [ngValue]="priority.Id">{{priority.Name}}</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="category" class="">Category</label>
-                        <select id="category" class="form-control input-group-sm" [(ngModel)]="newTicket.categoryId" name="category" [disabled]=false>
-                            <option *ngFor="let category of typecodes.categoryTypes" [ngValue]="category.Id">{{category.Name}}</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="category" class="">Subcategory</label>
-                        <select id="category" class="form-control input-group-sm" [(ngModel)]="newTicket.subcategoryId" name="category" [disabled]=false>
-                            <option *ngFor="let subcategory of typecodes.subcategoryTypes" [ngValue]="subcategory.Id">{{subcategory.Name}}</option>
-                        </select>
-                    </div>
-                </div>
+                </form>
             </div>
-            <div class="row">
-                <div class="col-xs-12">     
-                    <div class="form-group">
-                        <label for="summary" class="">Summary</label>
-                         <textarea class="form-control" id="summary" placeholder="Summary of issue..." rows="3" [(ngModel)]="newTicket.summary" name="summary"></textarea>
-
-                           
-                        <!--<input type="text" class="form-control input-group-sm input-no-border" id="category" [(ngModel)]="ticket.category" name="category">-->
-                    </div>
-                    <div class="form-group">
-                        <label for="confidential" class="">Confidential?</label>
-                        <input type="checkbox" id="confidential" [(ngModel)]="newTicket.isConfidential" name="confidential" >
-                        <!--<input type="text" class="form-control input-group-sm input-no-border" id="category" [(ngModel)]="ticket.category" name="category">-->
-                    </div>
-                    <!--<div class="form-group">
-              <label for="category" class="">Category</label>
-              
-            </div>-->
-                </div>
-                
-
-                
-            </div>
-            <div class="form-actions">
-                <div class="row">
-                    <div class="offset-md-4 col-md-7">
-                        <button type="button" class="btn btn-primary" (click)="postTicket(newTicket)">Add Ticket</button>
-                        <button type="button" class="btn btn-inverse">Cancel</button>
-                    </div>
-                </div>
-            </div>
-        </form>
+        </section>
     </div>
-</section>
+    <div class="col-md-6">
+        <!--<tabs>-
+            <tab tabTitle="Requester"><ticket-requester [requester]="ticketRequester$ | async"></ticket-requester></tab>
+            <tab tabTitle="Requester Assets"><section class="widget" widget style="min-height: 200px">coming soon</section></tab>
+        </tabs>-->
+    </div>
+ </div>   

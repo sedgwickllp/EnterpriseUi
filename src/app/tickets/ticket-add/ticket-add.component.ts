@@ -1,6 +1,6 @@
 import { ApplicationState } from '../application.state';
 import { TypecodesActions } from '../../core/typecodes/typecodes-actions';
-import { TicketActions } from '../ticket-store/ticket-actions';.
+import { TicketActions } from '../ticket-store/ticket-actions';
 import { TicketService } from '../ticket.service';
 import { TicketModel, TicketTestModel } from '../models/ticket.model';
 import { Component, Input, Output, OnInit, EventEmitter } from '@angular/core';
@@ -10,6 +10,8 @@ import { TicketAddModel } from '../models/ticket-add.model';
 import { TypecodesService } from "app/core/typecodes/typecodes.service";
 import { AllTypeCodesModel } from "app/core/typecodes/typecode.model";
 import { Store } from '@ngrx/store';
+import { Observable } from 'rxjs/Rx';
+
 
 @Component({
   selector: 'ticket-add',
@@ -20,7 +22,7 @@ export class TicketAdd implements OnInit {
     
     @Input()
     typecodes: AllTypeCodesModel;
-    users: [];
+    users: any[];
     @Output()
     newTicket: TicketAddModel;
     addTicket = new EventEmitter();

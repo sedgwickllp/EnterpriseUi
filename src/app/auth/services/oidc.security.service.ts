@@ -153,32 +153,7 @@ export class OidcSecurityService {
         this.runTokenValidatation();
 
         this._router.navigate([this._configuration.startupRoute]);
-//this._authorization.login(this.email, this.password)
-//    .subscribe((respJson) => this.success(respJson));
-        token = result.access_token;
-        id_token = result.id_token;
-        let decoded: any;
-        let headerDecoded;
-        decoded = this.oidcSecurityValidation.GetPayloadFromToken(id_token, false);
-        headerDecoded = this.oidcSecurityValidation.GetHeaderFromToken(id_token, false);
-        this.store('authNonce', '');
-        this.store('authStateControl', '');
-        this.SetAuthorizationData(token, id_token);
-        console.log(this.retrieve('authorizationData'));
 
-        if (this._configuration.start_checksession) {
-            this._oidcSecurityCheckSession.init().then(() => {
-                this._oidcSecurityCheckSession.pollServerSession(result.session_state, 'angularclient');
-            });
-        }
-
-        if (this._configuration.silent_renew) {
-            this._oidcSecuritySilentRenew.initRenew();
-        }
-
-        this.runTokenValidatation();
-
-        this._router.navigate([this._configuration.startupRoute]);
         /*
         this.getSigningKeys()
             .subscribe((res) => {
@@ -425,8 +400,8 @@ export class OidcSecurityService {
 
     public ExternalLogin() {
         this.setHeaders();
-        //window.location.href = this._configuration.server + '/account/ExternalLogin?provider=NTLM&returnUrl=' + encodeURI('/connect/authorize/login?client_id=EnterpriseUI&redirect_uri=http://localhost:3000/signin-callback';
-        return this._http.get(this._configuration.server + '/account/ExternalLogin?provider=NTLM&returnUrl=' + encodeURI('/connect/authorize/login?client_id=EnterpriseUI&redirect_uri=http://localhost:3000/signin-callback'), {
+        //window.location.href = this._configuration.server + '/account/ExternalLogin?provider=NTLM&returnUrl=' + encodeURI('/connect/authorize/login?client_id=EnterpriseUI&redirect_uri=http://10.31.201.176/signin-callback';
+        return this._http.get(this._configuration.server + '/account/ExternalLogin?provider=NTLM&returnUrl=' + encodeURI('/connect/authorize/login?client_id=EnterpriseUI&redirect_uri=http://10.31.201.176/signin-callback'), {
             headers: this.headers,
             body: ''
         }).map(res => res.json());
