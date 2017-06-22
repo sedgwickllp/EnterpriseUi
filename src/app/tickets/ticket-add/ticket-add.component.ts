@@ -1,4 +1,4 @@
-import { ApplicationState } from '../application.state';
+import { ApplicationState } from '../../application.state';
 import { TypecodesActions } from '../../core/typecodes/typecodes-actions';
 import { TicketActions } from '../ticket-store/ticket-actions';
 import { TicketService } from '../ticket.service';

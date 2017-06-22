@@ -12,7 +12,6 @@ export interface TicketStoreData {
     ticketActivity: TicketActivityModel[];
     ticketComments: TicketCommentsModel[];
     ticketProgress: TicketProgressModel;
-    ticketAdd: TicketAddModel;
 }
 
 export const INITIAL_TICKET_STORE_DATA: TicketStoreData = {
@@ -20,6 +19,5 @@ export const INITIAL_TICKET_STORE_DATA: TicketStoreData = {
     ticketRequester: {},
     ticketActivity: [],
     ticketComments: [],
-    ticketProgress: {},
-    ticketAdd: {}
+    ticketProgress: {}
 };

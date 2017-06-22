@@ -8,6 +8,7 @@ export function loginStoreData(state: LoginStoreData, action: Action): LoginStor
                 user: action.payload.user
                 
             }
+           
         default:
             return state;
     }

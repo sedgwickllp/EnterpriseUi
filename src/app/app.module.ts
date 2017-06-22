@@ -31,7 +31,7 @@ const APP_PROVIDERS = [
   ...APP_RESOLVER_PROVIDERS,
   AppState,
   AppConfig,
-  OidcSecurityService,
+  OidcSecurityService
 ];
 
 type StoreType = {

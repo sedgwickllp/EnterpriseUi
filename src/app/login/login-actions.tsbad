@@ -6,6 +6,7 @@ export class LoginActions {
     static LOGIN_USER_SUCCESS = '[USER] Login Success';
 
     loginUser(): Action {
+        console.log('calling login user action');
         return {
             type: LoginActions.LOGIN_USER
         };

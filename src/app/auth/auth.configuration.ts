@@ -2,13 +2,14 @@ import { Injectable } from '@angular/core';
 
 @Injectable()
 export class AuthConfiguration {
-
+    public authServer = (process.env.ENV== 'development') ? 'http://localhost:5000' : 'http://10.31.201.176:5000';
+    public appServer = (process.env.ENV== 'development') ? 'http://localhost:3000' : 'http://eicm-dev';
     // The Issuer Identifier for the OpenID Provider (which is typically obtained during Discovery) MUST exactly match the value of the iss (issuer) Claim.
-    public iss = 'http://localhost:5000';
+    public iss = this.authServer;
 
-    public server = 'http://localhost:5000'; //'http://10.31.201.176:5000';
+    public server = this.authServer; //'http://10.31.201.176:5000';
 
-    public redirect_url = 'http://localhost:300/index.html';
+    public redirect_url = this.appServer + '/login/';
 
     // This is required to get the signing keys so that the signiture of the Jwt can be validated.
     public jwks_url = this.server + '/.well-known/openid-configuration/jwks';
@@ -25,7 +26,7 @@ export class AuthConfiguration {
 
     public scope = 'openid profile EnterpriseApi';
 
-    public post_logout_redirect_uri = 'http://localhost:3000/index.html';
+    public post_logout_redirect_uri = this.appServer + '/index.html';
 
     public start_checksession = false;
 

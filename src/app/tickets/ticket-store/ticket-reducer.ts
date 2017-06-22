@@ -2,6 +2,7 @@ import { TicketStoreData } from './ticket.store-data';
 import { Action } from '@ngrx/store';
 import { TicketActions } from './ticket-actions';
 import { TicketCommentsModel } from '../models/ticket-comments.model';
+import { TicketAddModel } from '../models/ticket-add.model';
 import * as moment from 'moment';
 export function ticketStoreData(state: TicketStoreData, action: Action): TicketStoreData {
     switch (action.type) {
@@ -47,7 +48,8 @@ function handleNewTicketReceivedAction(state: TicketStoreData, action: Action) {
         ticketDetail: state.ticketDetail,
         ticketRequester: state.ticketRequester,
         ticketActivity: state.ticketActivity,
-        ticketComments: state.ticketComments
+        ticketComments: state.ticketComments,
+        ticketProgress: state.ticketProgress
     };
 
     /*const newComment: TicketCommentsModel = {

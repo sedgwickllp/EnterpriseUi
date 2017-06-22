@@ -372,7 +372,7 @@ export class OidcSecurityService {
     }
 
     private runTokenValidatation() {
-        let source = Observable.timer(3000, 3000)
+        let source = Observable.timer(300000, 300000)
             .timeInterval()
             .pluck('interval')
             .take(10000);
